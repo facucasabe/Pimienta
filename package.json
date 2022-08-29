@@ -1,0 +1,43 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint",
+    "phoenix": "rm -f package-lock.json && rm -rf ./node_modules && npm install --no-fund --no-audit --no-package-lock"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.nacionservicios.com.ar/web-devs/b2b/back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "7.3.0",
+    "nodemon": "2.0.19",
+    "standard": "17.0.0"
+  },
+  "dependencies": {
+    "@hapi/boom": "10.0.0",
+    "axios": "0.27.2",
+    "cors": "2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "4.18.1",
+    "joi": "17.6.0",
+    "node": "^16.17.0",
+    "pg": "4.5.5",
+    "pg-hstore": "2.3.4",
+    "qs": "6.11.0",
+    "sequelize": "^6.21.3"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+}
