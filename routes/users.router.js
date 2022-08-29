@@ -35,11 +35,16 @@ router.post('/', async (req, res) => {
   } catch (error) { return error }
 })
 
-router.patch('/:id', async (req, res) => {
-  const changes = req.body
-  const { id } = req.params
-  const user = await service.update(id, changes)
-  res.json(user)
+router.patch('/:id', (req, res, next) => {
+  try {
+    const changes = req.body
+    const { id } = req.params
+    const user = service.update(id, changes)
+    res.json(user)
+  }
+  catch (error) {
+    next(error)
+  }
 })
 
 

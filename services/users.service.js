@@ -11,7 +11,7 @@ class UsersService {
     const limit = 15;
     for (let i = 0; i < limit; i++) {
       this.users.push({
-        id: faker.datatype.number(),
+        id: faker.datatype.uuid(),
         name: faker.name.fullName()
       })
     }
@@ -31,11 +31,13 @@ class UsersService {
   }
 
   findOne(id) {
-    return this.users.find(e => e.id === parseInt(id))
+    console.log(id)
+    return this.users.find(e => e.id === id)
   }
 
   update(id, changes) {
-    const index = this.users.findIndex(e => e.id === parseInt(id))
+    const index = this.users.findIndex(e => e.id === id)
+    console.log(index)
     if (index === -1) {
       throw new Error('User not found')
     }
