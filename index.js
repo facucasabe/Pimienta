@@ -14,5 +14,5 @@ app.use(errorHandler)
 
 
 app.listen(port, () => {
-  console.log('Corriendo en puerto' + port)
+  console.log('Corriendo en puerto ' + port)
 })

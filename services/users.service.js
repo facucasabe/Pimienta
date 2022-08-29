@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const boom = require('@hapi/boom')
 
 class UsersService {
 
@@ -31,15 +32,17 @@ class UsersService {
   }
 
   findOne(id) {
-    console.log(id)
-    return this.users.find(e => e.id === id)
+
+    const user = this.users.find(e => e.id === id)
+    if (!user) {
+      throw boom.notFound('User not found')
+    } else { return user }
   }
 
   update(id, changes) {
     const index = this.users.findIndex(e => e.id === id)
-    console.log(index)
     if (index === -1) {
-      throw new Error('User not found')
+      throw boom.notFound('User not found')
     }
     const user = this.users[index]
     this.users[index] = {
