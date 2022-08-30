@@ -21,6 +21,10 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.STRING
   },
+  testResults: {
+    allowNull: true,
+    type: DataTypes.ARRAY(DataTypes.JSON)
+  },
   createdAt: {
     allowNull: true,
     type: DataTypes.DATE,

@@ -36,7 +36,7 @@ router.post('/',
     try {
       const body = req.body;
       const newUser = await service.create(body)
-      console.log('newUser', newUser)
+
       res.json({
         message: 'created',
         data: newUser
@@ -45,11 +45,12 @@ router.post('/',
   })
 
 router.patch('/:id', async (req, res, next) => {
-  validatorHandler(getUserSchema, 'params'),
-    validatorHandler(updateUserSchema, 'body')
+  validatorHandler(getUserSchema, 'params')
+  // validatorHandler(updateUserSchema, 'body')
   try {
     const changes = req.body
     const { id } = req.params
+
     const user = await service.update(id, changes)
     res.json(user)
   }
